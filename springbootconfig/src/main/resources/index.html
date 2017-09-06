@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <title></title>  
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> 
+</head>  
+<body>  
+  
+    <div ng-app="mainapp" data-ng-controller="Ctrl">  
+  
+        <table >  
+            <tr>  
+                <td>EmpId: </td>  
+                <td>  
+                    <span>{{ EmpModel.Id }}</span></td>  
+            </tr>  
+            <tr>  
+                <td>Name:</td>  
+                <td>  
+                    <input type="text" data-ng-model="EmpModel.Name" /></td>  
+            </tr>  
+            <tr>
+                <td>Address</td>
+                <td><input type="text" data-ng-model="EmpModel.Address"/></td>
+                </tr>
+            <tr>  
+                <td>Salary:</td>  
+                <td>  
+                    <input type="number" data-ng-model="EmpModel.Salary" /></td>  
+            </tr>  
+            <tr>  
+                <td></td>  
+                <td>  
+                    <input type="button" value="Save Data" data-ng-click="AddData()"/></td>  
+                 
+            </tr>  
+        </table>  
+     
+    <table border="1" style="width: 300px">  
+           <thead>  
+               <th>Id</th>  
+               <th>Name</th> 
+               <th>Address</th> 
+               <th>Salary</th>  
+           </thead>  
+           <tr data-ng-repeat="Emp in EmpList" data-ng-click="BindSelectedData(emp)" >
+               <td>{{ Emp.Id }}</td>  
+               <td>{{ Emp.Name }}</td>  
+               <td>{{Emp.Address}}</td>
+               <td>{{ Emp.Salary }}</td>  
+                  <td><input type="button" value="Delete" data-ng-click="DeleteData(Emp)"/></td>
+                  <td>  <input type="button" value="Edit" data-ng-click="BindSelectedData(Emp)" /></td>
+            
+           </tr> 
+       </table>  
+
+  </div> 
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+   <script src="app.js"></script>      
+</body>  
+</html>  
+
